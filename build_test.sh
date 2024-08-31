@@ -10,10 +10,11 @@ if [[ -z "${github}" ]] || [[ -z "${branch}"  ]] || [[ -z "${account}"  ]]; then
 fi
 
 repo="https://github.com/${github}/RDASApp"
+branch_noslash=${branch//\//_} # replace / with _
 
 set -x
 rm -rf RDASApp  # start from a fresh copy
-git clone --recursive -b ${branch} ${repo}
-cd RDASApp
+git clone --recursive -b ${branch} ${repo} RDASApp_${github}_${branch_noslash}
+cd RDASApp_${github}_${branch_noslash}
 ./build.sh
 ush/run_rrfs_tests.sh ${account}
