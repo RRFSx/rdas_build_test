@@ -1,15 +1,15 @@
 #!/bin/bash
 
-fork=$1
+github=$1
 branch=$2
 account=$3
 
-if [[ -z "${fork}" ]] || [[ -z "${branch}"  ]] || [[ -z "${account}"  ]]; then
-  echo "Usage: ${0} fork_name branch_name account_name"
+if [[ -z "${github}" ]] || [[ -z "${branch}"  ]] || [[ -z "${account}"  ]]; then
+  echo "Usage: $0 github_name branch_name account_name"
   exit
 fi
 
-repo="https://github.com/${fork}/RDASApp"
+repo="https://github.com/${github}/RDASApp"
 
 set -x
 rm -rf RDASApp  # start from a fresh copy
