@@ -16,4 +16,4 @@ rm -rf RDASApp  # start from a fresh copy
 git clone --recursive -b ${branch} ${repo}
 cd RDASApp
 ./build.sh
-ush/run_rrfs_test.sh ${account}
+ush/run_rrfs_tests.sh ${account}
