@@ -13,8 +13,9 @@ repo="https://github.com/${github}/RDASApp"
 branch_noslash=${branch//\//_} # replace / with _
 
 set -x
-rm -rf RDASApp  # start from a fresh copy
-git clone --recursive -b ${branch} ${repo} RDASApp_${github}_${branch_noslash}
-cd RDASApp_${github}_${branch_noslash}
+dstdir=RDASApp_${github}_${branch_noslash}
+rm -rf ${dstdir}  # start from a fresh copy
+git clone --recursive -b ${branch} ${repo} ${dstdir}
+cd ${dstdir}
 ./build.sh
 ush/run_rrfs_tests.sh ${account}
