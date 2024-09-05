@@ -18,4 +18,6 @@ rm -rf ${dstdir}  # start from a fresh copy
 git clone --recursive -b ${branch} ${repo} ${dstdir}
 cd ${dstdir}
 ./build.sh
-ush/run_rrfs_tests.sh ${account}
+if (( $? == 0 )); then
+  ush/run_rrfs_tests.sh ${account}
+fi
