@@ -21,3 +21,5 @@ cd ${dstdir}
 if (( $? == 0 )); then
   ush/run_rrfs_tests.sh ${account}
 fi
+echo "The tested RDASApp_directory is:"
+echo ${dstdir}
