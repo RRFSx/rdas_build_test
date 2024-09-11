@@ -17,7 +17,7 @@ dstdir=RDASApp_${github}_${branch_noslash}
 rm -rf ${dstdir}  # start from a fresh copy
 git clone --recursive -b ${branch} ${repo} ${dstdir}
 cd ${dstdir}
-./build.sh -f 2>&1 | tee log.output
+./build.sh -f 2>&1 | tee log.build
 if (( $? == 0 )); then
   ush/run_rrfs_tests.sh ${account}
 fi
