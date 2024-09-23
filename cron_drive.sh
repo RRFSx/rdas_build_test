@@ -21,7 +21,7 @@ case "${MACHINE_ID}" in
     ACCT=nrtrr
     ;;
   hercules)
-    ACCT=rtrr
+    ACCT=wrfruc
     ;;
   *)
     echo "Unsupported platform=${MACHINE_ID}. Exiting with error."
