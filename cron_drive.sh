@@ -6,7 +6,9 @@ if [[ -f ${HOME}/rdas_build_test/lock_pr_auto_build_test ]]; then
 fi
 
 ### build and test
-source /etc/profile.d/modules.sh
+if [[ -e /etc/profile.d/modules.sh ]]; then
+  source /etc/profile.d/modules.sh
+fi
 ### module list > ${HOME}/module.txt # for debugging
 source ${HOME}/.bashrc
 cd ${HOME}/rdas_build_test
