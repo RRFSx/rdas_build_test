@@ -6,7 +6,7 @@ trap cleanup EXIT # release the lock no matter how this script exits
 
 touch ./lock_pr_auto_build_test # set up a lock so that callers can avoid running multiple instances of this script
 
-OWNER="comgsi"
+OWNER="NOAA-EMC"
 REPO="RDASApp"
 export SLURM_ACCOUNT=${1}
 if [[ "${1}" == "" ]]; then
