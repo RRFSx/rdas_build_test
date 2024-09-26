@@ -65,8 +65,10 @@ for prNumber in ${pr_test_list}; do
   fi
   if (( ${err} == 0 )); then
     gh pr edit ${prNumber} --remove-label running_${MACHINE_ID} --add-label Passed_${MACHINE_ID} --repo $OWNER/$REPO &>/dev/null
+    sed -i "1i PASSED on ${MACHINE_ID}\n" ./comments.txt
   else
     gh pr edit ${prNumber} --remove-label running_${MACHINE_ID} --add-label Failed_${MACHINE_ID} --repo $OWNER/$REPO &>/dev/null
+    sed -i "1i FAILED on ${MACHINE_ID}\n" ./comments.txt
   fi
   echo -e "finished at UTC time: $(date -u)\n\`\`\`" >> ./comments.txt
   cat ./log.test >> ./comments.txt 
