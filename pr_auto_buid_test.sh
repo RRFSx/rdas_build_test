@@ -33,6 +33,12 @@ case "${MACHINE_ID}" in
 esac
 mkdir -p ${workdir}
 
+# get the latest-merged PRs and remove the testing directory if existed
+pr_test_list=( $(gh pr list --state=merged --limit 5 --repo $OWNER/$REPO | awk '{print $1;}') )
+for prNumber in ${pr_test_list}; do
+  rm -rf ${workdir}/${prNumber}
+done
+
 # get current open PRs and with an "test_${MACHINE_ID}" label
 pr_test_list=( $(gh pr list --label test_${MACHINE_ID} --state=open --repo $OWNER/$REPO | awk '{print $1;}') )
 for prNumber in ${pr_test_list}; do
@@ -68,5 +74,5 @@ for prNumber in ${pr_test_list}; do
   gh pr comment ${prNumber} --body-file ./comments.txt --repo $OWNER/$REPO &>/dev/null
 done
 
-# scrub files older than 60 days
-find ${workdir} -maxdepth 1 -mtime +60 -exec rm -rf {} \;
+# scrub old files
+find ${workdir} -maxdepth 1 -mtime +30 -exec rm -rf {} \;
