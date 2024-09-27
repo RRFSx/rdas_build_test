@@ -11,4 +11,4 @@ The usage of build_test.sh is as follows:
 In the above example, `guoqing-noaa` is the github account name, `hotfix` is the branch name and `rtrr` is the slurm account to be used.  
 So we are trying to test the `hotfix` branch of the `guoqing-noaa/RDASApp` repository here.   
 
-_NOTE: One only needs to clone rdas_build_test once and can use it to test different forks/branches._
+_NOTE: You only needs to clone rdas_build_test once and can use it to test different forks/branches._
