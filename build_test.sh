@@ -13,7 +13,7 @@ repo="https://github.com/${github}/RDASApp"
 branch_noslash=${branch//\//_} # replace / with _
 
 set -x
-dstdir=RDASApp_${github}_${branch_noslash}
+dstdir=${github}_${branch_noslash}
 rm -rf ${dstdir}  # start from a fresh copy
 git clone --recursive -b ${branch} ${repo} ${dstdir}
 cd ${dstdir}
