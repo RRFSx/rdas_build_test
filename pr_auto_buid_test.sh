@@ -34,7 +34,7 @@ esac
 mkdir -p ${workdir}
 
 # get the latest-merged PRs and remove the testing directory if existed
-pr_test_list=( $(gh pr list --state=merged --limit 5 --repo $OWNER/$REPO | awk '{print $1;}') )
+pr_test_list=$(gh pr list --state=merged --limit 5 --repo $OWNER/$REPO | awk '{print $1;}' | tr '\n' ' ')
 for prNumber in ${pr_test_list}; do
   rm -rf ${workdir}/${prNumber}
 done
