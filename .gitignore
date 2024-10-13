@@ -1,3 +1,4 @@
-RDASApp*
-lock_pr_auto_build_test
-.nfs*
+*
+!build_test.sh
+!README.md
+!.gitignore
