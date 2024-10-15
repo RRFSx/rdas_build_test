@@ -1,4 +1,5 @@
 *
 !build_test.sh
+!build_test_withGitLFS.sh
 !README.md
 !.gitignore
