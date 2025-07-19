@@ -18,7 +18,7 @@ source ./detect_machine.sh
 
 case "${MACHINE_ID}" in
   hera)
-    workdir=/scratch1/NCEPDEV/fv3-cam/rrfsbot/PRs_${REPO}
+    workdir=/scratch3/NCEPDEV/fv3-cam/rrfsbot/PRs_${REPO}
     ;;
   jet)
     workdir=/lfs5/BMC/wrfruc/rrfsbot/PRs_${REPO}
