@@ -15,7 +15,7 @@ branch_noslash=${branch//\//_} # replace / with _
 set -x
 dstdir=RDASApp_${github}_${branch_noslash}
 rm -rf ${dstdir}  # start from a fresh copy
-git clone --recursive -b ${branch} ${repo} ${dstdir}
+GIT_LFS_SKIP_SMUDGE=1 git clone --recursive -b ${branch} ${repo} ${dstdir}
 cd ${dstdir}
 ./build.sh -j16 -f 2>&1 | tee log.build
 if (( $? == 0 )); then
