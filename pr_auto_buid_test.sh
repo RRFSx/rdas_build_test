@@ -50,7 +50,7 @@ for prNumber in ${pr_test_list}; do
   head_ref=$(echo "$json_data" | jq -r '.headRefName')
   repo_name=$(echo "$json_data" | jq -r '.headRepository.name')
   repo_owner=$(echo "$json_data" | jq -r '.headRepositoryOwner.login')
-  git clone -b ${head_ref} --recursive git@github.com:${repo_owner}/${repo_name} ${prNumber} #&>${workdir}/log.clone_${prNumber}
+  GIT_LFS_SKIP_SMUDGE=1 git clone -b ${head_ref} --recursive git@github.com:${repo_owner}/${repo_name} ${prNumber} #&>${workdir}/log.clone_${prNumber}
 
   cd ${prNumber}
   echo -e "started build_and_test on ${MACHINE_ID} at UTC time: $(date -u)" > ./comments.txt
